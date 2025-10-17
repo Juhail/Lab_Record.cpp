@@ -10,65 +10,68 @@ using namespace std;
 class Student {
 protected:
     string name;
-    int rollno;
+    int roll_no;
     string course;
 
 public:
-    void setStudent(string n, int r, string c) {
+    void student_details(string n, int r, string c) {
         name = n;
-        rollno = r;
+        roll_no = r;
         course = c;
     }
 };
 
 class Test : virtual public Student {
 protected:
-    int marks1, marks2, marks3;
+    int mark1, mark2, mark3;
 
 public:
-    void setMarks(int m1, int m2, int m3) {
-        marks1 = m1;
-        marks2 = m2;
-        marks3 = m3;
+    void mark(int m1, int m2, int m3) {
+        mark1 = m1;
+        mark2 = m2;
+        mark3 = m3;
     }
 };
 
 class GraceMarks : virtual public Student {
 protected:
-    int bonusMark;
+    int bonus_mark;
 
 public:
-    void setBonus(int b) {
-        bonusMark = b;
+    void bonus(int b) {
+        bonus_mark = b;
     }
 };
 
 class Result : public Test, public GraceMarks {
 public:
-    void displayResult() {
-        int total = marks1 + marks2 + marks3 + bonusMark;
-        cout<<"Name: "<<name<<endl;
-        cout<<"Roll No: "<<rollno<<endl;
-        cout<<"Course: "<<course<<endl;
-        cout<<"Marks: "<<marks1<<", "<<marks2<<", "<<marks3<<endl;
-        cout<<"Bonus Marks: "<<bonusMark<<endl;
-        cout<<"Total Marks: "<<total<<endl;
+    void show() {
+        int total = mark1 + mark2 + mark3 + bonus_mark;
+        cout << "Student Name: " << name << endl;
+        cout << "Roll Number: " << roll_no << endl;
+        cout << "Course: " << course << endl;
+        cout << "Marks: " << mark1 << ", " << mark2 << ", " << mark3 << endl;
+        cout << "Bonus Marks: " << bonus_mark << endl;
+        cout << "Total Marks: " << total << endl;
     }
 };
 
 int main() {
     Result r;
-    r.setStudent("Alice", 101, "CSE");
-    r.setMarks(80, 85, 90);
-    r.setBonus(5);
-    r.displayResult();
+    r.student_details("Rahul", 205, "Mechanical");
+    r.mark(75, 82, 88);
+    r.bonus(4);
+    
+    r.show();
 
+    return 0;
 }
+
 //Output :
 //
-// Name: Alice
-// Roll No: 101
-// Course: CSE
-// Marks: 80, 85, 90
-// Bonus Marks: 5
-// Total Marks: 260
+// Student Name: Rahul
+// Roll Number: 205
+// Course: Mechanical
+// Marks: 75, 82, 88
+// Bonus Marks: 4
+// Total Marks: 249
