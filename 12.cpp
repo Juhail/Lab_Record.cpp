@@ -1,32 +1,62 @@
+// 12. Write a c++ program to perform multiple inheritance
+
 #include <iostream>
 using namespace std;
 
-class Phone {
+class online_shopping {
 public:
-    void makeCall() {
-        cout << "This smartphone can make calls." << endl;
-    }
+string item_name;
+int quantity;
+float price;
+
+
 };
 
-class Camera {
+
+class shipping_details {
 public:
-    void takePhoto() {
-        cout << "This smartphone can take photos." << endl;
-    }
+float shipping_charge = 5.99;
 };
 
-class Smartphone : public Phone, public Camera {
+class bill : public online_shopping,public shipping_details {
 public:
-    void describe() {
-        cout << "This is a smartphone:" << endl;
-        makeCall();
-        takePhoto();
-    }
-};
+void input(){
 
-int main() {
-    Smartphone myPhone;
-    myPhone.describe();
-
-    return 0;
+    cout<<"enter item name"<<endl;
+    cin>>item_name;
+    cout<<"enter quantity"<<endl;
+    cin>>quantity;
+    cout<<"enter price"<<endl;
+    cin>>price;
+    
 }
+void display()
+{
+float total = price + shipping_charge;
+cout<<"Item : "<<item_name<<endl;
+cout<<"Quantity : "<<quantity<<endl;
+cout<<"Price : Rs. "<<price<<endl;
+cout<<"Shipping Charge : Rs. "<<shipping_charge<<endl;
+cout<<"Total : Rs. "<<total<<endl;
+}
+};
+int main()
+{
+
+bill b1;
+b1.input();
+b1.display();
+}
+
+//Output:
+// enter item name
+// apple
+// enter quantity
+// 14
+// enter price
+// 20
+// Item : apple
+// Quantity : 14
+// Price : Rs. 20
+// Shipping Charge : Rs. 5.99
+// Total : Rs. 25.99
