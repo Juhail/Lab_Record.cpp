@@ -1,3 +1,5 @@
+// 8. C++ program to illustrate the use of unary operator overloading, increment ++ operator overloading 
+//for count =4
 #include <iostream>
 using namespace std;
 
@@ -32,3 +34,8 @@ int main() {
 
    
 }
+
+// Output:
+// Count: 4
+// Count: 5
+// Count: 6
